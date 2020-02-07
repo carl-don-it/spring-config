@@ -1,0 +1,5 @@
+# 先启动，再在application.yml中注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://shop-eureka1:8001/eureka/,http://shop-eureka2:8002/eureka/}

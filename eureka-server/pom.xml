@@ -4,28 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.don.demo</groupId>
-        <artifactId>spring-config-demo</artifactId>
+        <artifactId>spring-config</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>config-server</artifactId>
-
+    <artifactId>eureka-server</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
+            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
+            <version>1.3.6.RELEASE</version>
         </dependency>
-
-        <!-- Spring Cloud Eureka的依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -37,8 +30,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
                     <target>1.8</target>
+                    <source>1.8</source>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
         </plugins>

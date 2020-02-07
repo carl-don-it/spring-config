@@ -3,14 +3,22 @@ spring:
     name: client                  #指定了配置文件的应用名
   cloud:
     config:
-      uri: http://localhost:7001/        #Config server的uri
+#      uri: http://localhost:7001/        #Config server的uri
       profile: dev                       #指定的环境
       label: master                      #指定分支
-
+      discovery:
+          enabled: true                     #开启配置服务发现,直接通过eureka从config-server拿
+          serviceId: config-server        #配置中心服务名
 server:
   port: 7002
+
 
 management:
   security:
     enabled: false     #SpringBoot 1.5.X 以上默认开通了安全认证，如果不关闭会要求权限
 
+# 注册到eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://shop-eureka1:8001/eureka/,http://shop-eureka2:8002/eureka/}
